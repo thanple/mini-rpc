@@ -24,7 +24,7 @@ public class RemoteProxy {
                 (proxy, method, args)->{
                     Request request = new Request();
                     request.setUuid(UUID.randomUUID().toString());
-                    request.setClassName(className);
+                    request.setClassName(serviceStub.getName());
                     request.setMethodName(method.getName());
                     request.setParamTypes(method.getParameterTypes());
                     request.setParams(args);

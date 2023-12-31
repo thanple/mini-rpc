@@ -4,7 +4,7 @@ import com.thanple.rpc.server.RpcServer;
 
 import java.io.IOException;
 import java.nio.channels.SocketChannel;
-import org.junit.Test;
+//import org.junit.Test;
 
 /**
  * @author Liubsyy
