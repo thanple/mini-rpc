@@ -18,14 +18,15 @@ import java.util.Set;
 
 public class RpcServer {
 
+    private int port;
     private volatile boolean isOpen;
 
-    public static void main(String[] args) throws IOException {
-        new RpcServer().start(8000);
+
+    public RpcServer(int port) {
+        this.port = port;
     }
 
-
-    public void start(int port) throws IOException {
+    public void start() throws IOException {
         Selector selector = Selector.open();
         ServerSocketChannel serverSocket = ServerSocketChannel.open();
         serverSocket.bind(new InetSocketAddress("localhost", port));
@@ -89,7 +90,7 @@ public class RpcServer {
             }
 
             byte[] data = new byte[length];
-            buffer.get(data, 0, length);
+            buffer.get(data, 4, length);
             String message = new String(data);
             System.out.println("Received message: " + message);
 
